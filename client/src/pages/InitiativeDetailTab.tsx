@@ -120,8 +120,9 @@ export default function InitiativeDetailTab() {
 
       {/* Tool header */}
       <div style={{ background: 'white', borderRadius: 12, border: '1px solid #E1E8F1', padding: '20px 24px', boxShadow: '0 1px 4px rgba(22,39,61,0.06)' }}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, flexWrap: 'wrap' }}>
-          <div style={{ flex: 1, minWidth: 0 }}>
+        {/* Stats row — on desktop sits to the right of the title, on mobile sits below */}
+        <div className="tool-header-grid">
+          <div style={{ minWidth: 0 }}>
             <div style={{ fontSize: 18, fontWeight: 800, color: '#16273D', marginBottom: 4 }}>{tool.name}</div>
             <div style={{ fontSize: 13, color: '#54657E', lineHeight: 1.5, marginBottom: 10 }}>{tool.description}</div>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -132,7 +133,7 @@ export default function InitiativeDetailTab() {
               </span>
             </div>
           </div>
-          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+          <div className="tool-header-stats">
             <div style={{ textAlign: 'center' }}>
               <div className="mono" style={{ fontSize: 22, fontWeight: 700, color: '#0090DA' }}>${tool.yearlyValue}M</div>
               <div style={{ fontSize: 11, color: '#8290A6' }}>Yearly Value</div>
