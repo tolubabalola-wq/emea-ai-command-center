@@ -120,7 +120,7 @@ export function SectionHeader({ title, subtitle, action }: { title: string; subt
 
 export function Card({ children, style, className }: { children: React.ReactNode; style?: React.CSSProperties; className?: string }) {
   return (
-    <div className={`ml-card ${className || ''}`} style={{ padding: '20px 24px', ...style }}>
+    <div className={`ml-card card-pad ${className || ''}`} style={{ ...style }}>
       {children}
     </div>
   );
@@ -144,7 +144,7 @@ export function MetricTile({
   icon?: React.ReactNode;
 }) {
   return (
-    <div className="ml-card" style={{ padding: '20px 22px', display: 'flex', flexDirection: 'column', gap: 6 }}>
+    <div className="ml-card tile-pad" style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 6, justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
           {icon && <span style={{ color: '#0090DA', display: 'flex' }}>{icon}</span>}
@@ -154,9 +154,8 @@ export function MetricTile({
       </div>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
         <span
-          className="mono"
+          className="mono metric-value"
           style={{
-            fontSize: 28,
             fontWeight: 700,
             color: color ? STATUS_COLORS[color] : '#16273D',
             lineHeight: 1.1,

@@ -230,6 +230,52 @@
     .grid-5tiles { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   }
 
+  /* Header meta text */
+  .meta-label { font-size: 10px; color: #8290A6; line-height: 1.2; }
+  .meta-value { font-size: 11px; font-weight: 700; line-height: 1.2; }
+
+  /* Mobile-first global overrides */
+  @media (max-width: 600px) {
+    /* Tighter card padding on mobile */
+    .ml-card { border-radius: 0.625rem; }
+
+    /* Smaller section headings on mobile */
+    .section-heading { font-size: 0.9375rem; }
+    .section-subtext { font-size: 0.75rem; }
+
+    /* Main content padding tighter on mobile */
+    .main-content { padding: 12px 12px 24px !important; }
+
+    /* Heatmap: allow horizontal scroll */
+    .heatmap-scroll-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* Tab padding tighter */
+    .ml-tab { padding: 0.5rem 0.875rem; font-size: 0.8125rem; }
+
+    /* Stack gap tighter */
+    .mobile-gap { gap: 16px !important; }
+  }
+
+  /* Metric tile value — responsive font size */
+  .metric-value { font-size: 26px; }
+  @media (max-width: 600px) {
+    .metric-value { font-size: 20px; }
+  }
+
+  /* Tab content column — responsive vertical gap */
+  .tab-content-col { display: flex; flex-direction: column; gap: 24px; }
+  @media (max-width: 600px) {
+    .tab-content-col { gap: 16px; }
+  }
+
+  /* Responsive card padding */
+  .card-pad { padding: 20px 24px; }
+  .tile-pad { padding: 18px 20px; }
+  @media (max-width: 600px) {
+    .card-pad { padding: 14px 14px; }
+    .tile-pad { padding: 12px 12px; }
+  }
+
   /* Section heading */
   .section-heading {
     font-size: 1rem;

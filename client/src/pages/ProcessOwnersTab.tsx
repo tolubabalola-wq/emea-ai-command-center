@@ -73,7 +73,7 @@ function JourneyCard({ journey }: { journey: Journey }) {
         </div>
 
         {/* Stats */}
-        <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexShrink: 0 }}>
+        <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexShrink: 0, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
           <div style={{ textAlign: 'center' }}>
             <div className="mono" style={{ fontSize: 16, fontWeight: 700, color: '#16273D' }}>{journey.touchlessRate}%</div>
             <div style={{ fontSize: 10, color: '#8290A6' }}>Touchless</div>
@@ -174,7 +174,7 @@ export default function ProcessOwnersTab() {
   }));
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+    <div className="tab-content-col">
 
       {/* Summary tiles */}
       <div>
@@ -182,7 +182,7 @@ export default function ProcessOwnersTab() {
           title="End-to-End Journey Ownership"
           subtitle="Each journey is owned by one named Global Process Owner who is accountable for the full flow across all teams and markets, including every hand-off and exception."
         />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 14 }}>
+        <div className="grid-5tiles">
           <MetricTile label="Journeys Owned" value={totalJourneys} sub="End-to-end customer journeys" color="blue" />
           <MetricTile label="Average Touchless Rate" value={`${avgTouchless}%`} sub="Journeys completed with no human step" color={avgTouchless >= 65 ? 'green' : 'amber'} tooltip="Share of journeys completed end-to-end with no human intervention. This is different from resolved-without-a-person, which measures single interactions." />
           <MetricTile label="Open Exceptions" value={totalExceptions} sub="Hand-offs awaiting resolution" color={totalExceptions > 20 ? 'red' : 'amber'} tooltip="Exceptions are cases where a hand-off between teams has stalled or failed and needs the process owner to intervene." />

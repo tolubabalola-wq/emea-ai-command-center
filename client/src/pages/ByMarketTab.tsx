@@ -75,7 +75,7 @@ export default function ByMarketTab() {
   const activeCells = MARKETS.reduce((sum, m) => sum + FUNCTIONS.filter(f => heatmapData[m]?.[f]?.length > 0).length, 0);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+    <div className="tab-content-col">
 
       {/* Header */}
       <div>
@@ -137,7 +137,7 @@ export default function ByMarketTab() {
       </div>
 
       {/* Heatmap */}
-      <div style={{ overflowX: 'auto' }}>
+      <div className="heatmap-scroll-wrapper" style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
         <table style={{ borderCollapse: 'separate', borderSpacing: 3, minWidth: 900 }}>
           <thead>
             <tr>

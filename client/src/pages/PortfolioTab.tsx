@@ -69,7 +69,7 @@ export default function PortfolioTab() {
   }));
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+    <div className="tab-content-col">
 
       {/* Filters */}
       <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -326,9 +326,10 @@ export default function PortfolioTab() {
           Responsible AI Scores Per Tool — heat grid showing how each tool scores on each principle
         </button>
         {raiOpen && (
-          <Card style={{ marginTop: 10, overflowX: 'auto' }}>
+          <Card style={{ marginTop: 10 }}>
             <SectionHeader title="Responsible AI Scores by Tool" subtitle="Each cell shows the score for that principle. Green is 85+, amber is 75–84, red is below 75." />
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11 }}>
+            <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11, minWidth: 600 }}>
               <thead>
                 <tr>
                   <th style={{ padding: '6px 10px', textAlign: 'left', fontSize: 11, fontWeight: 700, color: '#8290A6', minWidth: 160 }}>Tool</th>
@@ -354,6 +355,7 @@ export default function PortfolioTab() {
                 ))}
               </tbody>
             </table>
+            </div>
           </Card>
         )}
       </div>
@@ -368,9 +370,10 @@ export default function PortfolioTab() {
           Models and Oversight — which MetIQ model powers each tool and the level of human review
         </button>
         {modelsOpen && (
-          <Card style={{ marginTop: 10, overflowX: 'auto' }}>
+          <Card style={{ marginTop: 10 }}>
             <SectionHeader title="Models and Oversight" subtitle="Every tool runs on MetIQ. This table shows which model variant and the human oversight level in production." />
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12.5 }}>
+            <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12.5, minWidth: 560 }}>
               <thead>
                 <tr style={{ borderBottom: '2px solid #E1E8F1' }}>
                   {['Tool', 'Function', 'Model', 'Human Oversight', 'Quality'].map(h => (
@@ -397,6 +400,7 @@ export default function PortfolioTab() {
                 ))}
               </tbody>
             </table>
+            </div>
           </Card>
         )}
       </div>

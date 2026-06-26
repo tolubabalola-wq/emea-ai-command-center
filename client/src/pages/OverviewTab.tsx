@@ -42,7 +42,7 @@ function OnTrackCard({ label, current, target, unit, status, tooltip }: {
   const pct = typeof current === 'number' && typeof target === 'number'
     ? Math.min(100, Math.round((current / target) * 100)) : null;
   return (
-    <div className="ml-card" style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+    <div className="ml-card tile-pad" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <span style={{ fontSize: 12, fontWeight: 600, color: '#54657E', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{label}</span>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -50,11 +50,11 @@ function OnTrackCard({ label, current, target, unit, status, tooltip }: {
           {tooltip && <InfoTooltip text={tooltip} />}
         </div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-        <span className="mono" style={{ fontSize: 22, fontWeight: 700, color: '#16273D' }}>{current}{unit}</span>
-        <span style={{ fontSize: 12, color: '#8290A6' }}>of</span>
-        <span className="mono" style={{ fontSize: 16, fontWeight: 600, color: '#54657E' }}>{target}{unit}</span>
-        <span style={{ fontSize: 12, color: '#8290A6' }}>target</span>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, flexWrap: 'wrap' }}>
+        <span className="mono metric-value" style={{ fontWeight: 700, color: '#16273D' }}>{current}{unit}</span>
+        <span style={{ fontSize: 11, color: '#8290A6' }}>of</span>
+        <span className="mono" style={{ fontSize: 14, fontWeight: 600, color: '#54657E' }}>{target}{unit}</span>
+        <span style={{ fontSize: 11, color: '#8290A6' }}>target</span>
       </div>
       {pct !== null && (
         <ProgressBar value={pct} target={100} color={status} height={5} />
@@ -68,7 +68,8 @@ function RAIScoreRow({ principle, score }: { principle: string; score: number })
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 0', borderBottom: '1px solid #F3F6FB' }}>
       <StatusDot color={status} />
-      <span style={{ minWidth: 100, maxWidth: 160, width: '30%', fontSize: 13, fontWeight: 500, color: '#16273D', flexShrink: 0 }}>{principle}</span>
+            <span style={{
+          minWidth: 80, maxWidth: 140, width: '28%', fontSize: 12.5, fontWeight: 500, color: '#16273D', flexShrink: 0, lineHeight: 1.3 }}>{principle}</span>
       <div style={{ flex: 1 }}>
         <ProgressBar value={score} color={status} height={6} />
       </div>
@@ -96,9 +97,10 @@ function ExpandablePriorityBar({ priority, value, tools }: {
           {open ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
         </div>
         <span style={{
-          minWidth: 120, maxWidth: 260, width: '40%', fontSize: 13, fontWeight: isEnabler ? 500 : 600,
+          minWidth: 0, maxWidth: '100%', width: '38%', fontSize: 12.5, fontWeight: isEnabler ? 500 : 600,
           color: isEnabler ? '#54657E' : '#16273D', flexShrink: 0,
           fontStyle: isEnabler ? 'italic' : 'normal', lineHeight: 1.35,
+          overflow: 'hidden', textOverflow: 'ellipsis',
         }}>{priority}</span>
         <div style={{ flex: 1, background: '#E1E8F1', borderRadius: 4, height: 20, position: 'relative', overflow: 'hidden' }}>
           <div style={{
@@ -157,7 +159,7 @@ export default function OverviewTab() {
   const qualityStatus = getStatusColor(stats.answerQuality, { green: 88, amber: 80 });
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
+    <div className="tab-content-col">
 
       {/* Headline Tiles */}
       <div>
@@ -165,7 +167,7 @@ export default function OverviewTab() {
           title="At a Glance"
           subtitle="The five numbers that define where the EMEA AI portfolio stands today."
         />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 14 }}>
+        <div className="grid-5tiles">
           <MetricTile
             label="Value Realized"
             value={`$${stats.valueRealized}M`}
@@ -392,7 +394,7 @@ export default function OverviewTab() {
             title="Risk Level and Quality at a Glance"
             subtitle="Portfolio risk score and answer quality shown as gauges. Risk: lower is better. Quality: higher is better."
           />
-          <div style={{ display: 'flex', gap: 24, justifyContent: 'center', padding: '16px 0' }}>
+          <div style={{ display: 'flex', gap: 16, justifyContent: 'center', padding: '12px 0', flexWrap: 'wrap' }}>
             <div style={{ textAlign: 'center' }}>
               <ScoreGauge score={stats.riskScore} size={120} />
               <div style={{ fontSize: 12, fontWeight: 600, color: '#54657E', marginTop: 4 }}>Portfolio Risk</div>

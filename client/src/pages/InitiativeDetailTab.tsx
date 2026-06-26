@@ -44,7 +44,7 @@ function WaterfallChart({ tool }: { tool: typeof AI_TOOLS[0] }) {
           const pct = (step.actualMs / total) * 100;
           return (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ minWidth: 80, maxWidth: 120, width: '25%', fontSize: 12, color: '#54657E', textAlign: 'right', flexShrink: 0 }}>{step.step}</span>
+              <span style={{ minWidth: 0, maxWidth: 110, width: '28%', fontSize: 11.5, color: '#54657E', textAlign: 'right', flexShrink: 0, lineHeight: 1.3 }}>{step.step}</span>
               <div style={{ flex: 1, background: '#E1E8F1', borderRadius: 4, height: 22, overflow: 'hidden' }}>
                 <div style={{
                   width: `${pct}%`, height: '100%', background: step.color, borderRadius: 4,
@@ -58,7 +58,7 @@ function WaterfallChart({ tool }: { tool: typeof AI_TOOLS[0] }) {
           );
         })}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 4, borderTop: '2px solid #E1E8F1', paddingTop: 8 }}>
-          <span style={{ minWidth: 80, maxWidth: 120, width: '25%', fontSize: 12, fontWeight: 700, color: '#16273D', textAlign: 'right', flexShrink: 0 }}>Total</span>
+          <span style={{ minWidth: 0, maxWidth: 110, width: '28%', fontSize: 12, fontWeight: 700, color: '#16273D', textAlign: 'right', flexShrink: 0 }}>Total</span>
           <span className="mono" style={{ fontSize: 14, fontWeight: 700, color: '#0090DA' }}>{total}ms end-to-end</span>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function InitiativeDetailTab() {
   const humanOversightLevel = tool.riskLevel === 'High' ? 85 : tool.riskLevel === 'Medium' ? 45 : 18;
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+    <div className="tab-content-col">
 
       {/* Selectors */}
       <div>
@@ -100,7 +100,7 @@ export default function InitiativeDetailTab() {
                 const firstTool = AI_TOOLS.find(t => t.function === e.target.value && t.stage === 'Production');
                 if (firstTool) setSelectedToolId(firstTool.id);
               }}
-              style={{ fontSize: 13, padding: '8px 14px', border: '1px solid #E1E8F1', borderRadius: 8, background: 'white', color: '#16273D', minWidth: 200 }}
+              style={{ fontSize: 13, padding: '8px 14px', border: '1px solid #E1E8F1', borderRadius: 8, background: 'white', color: '#16273D', minWidth: 0, width: '100%' }}
             >
               {functionsWithTools.map(f => <option key={f} value={f}>{f}</option>)}
             </select>
@@ -110,7 +110,7 @@ export default function InitiativeDetailTab() {
             <select
               value={selectedToolId}
               onChange={e => setSelectedToolId(e.target.value)}
-              style={{ fontSize: 13, padding: '8px 14px', border: '1px solid #E1E8F1', borderRadius: 8, background: 'white', color: '#16273D', minWidth: 260 }}
+              style={{ fontSize: 13, padding: '8px 14px', border: '1px solid #E1E8F1', borderRadius: 8, background: 'white', color: '#16273D', minWidth: 0, width: '100%' }}
             >
               {toolsForFunction.map(t => <option key={t.id} value={t.id}>{t.name}</option>)}
             </select>
@@ -121,7 +121,7 @@ export default function InitiativeDetailTab() {
       {/* Tool header */}
       <div style={{ background: 'white', borderRadius: 12, border: '1px solid #E1E8F1', padding: '20px 24px', boxShadow: '0 1px 4px rgba(22,39,61,0.06)' }}>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, flexWrap: 'wrap' }}>
-          <div style={{ flex: 1, minWidth: 240 }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: 18, fontWeight: 800, color: '#16273D', marginBottom: 4 }}>{tool.name}</div>
             <div style={{ fontSize: 13, color: '#54657E', lineHeight: 1.5, marginBottom: 10 }}>{tool.description}</div>
             <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
@@ -132,7 +132,7 @@ export default function InitiativeDetailTab() {
               </span>
             </div>
           </div>
-          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'flex-start' }}>
             <div style={{ textAlign: 'center' }}>
               <div className="mono" style={{ fontSize: 22, fontWeight: 700, color: '#0090DA' }}>${tool.yearlyValue}M</div>
               <div style={{ fontSize: 11, color: '#8290A6' }}>Yearly Value</div>
