@@ -1,4 +1,4 @@
-// MetLife EMEA AI Command Center — Shared UI Primitives
+// EMEA AI Command Center — Shared UI Primitives
 import React, { useState } from 'react';
 import { Info } from 'lucide-react';
 
