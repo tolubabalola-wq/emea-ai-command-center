@@ -1,10 +1,10 @@
-// MetLife EMEA AI Command Center — Process Owners Tab
-// Design: Light premium canvas, MetLife blue primary, journey hand-off chains, plain business English
+// EMEA AI Command Center — Process Owners Tab
+// Design: Light premium canvas, blue primary, journey hand-off chains, plain business English
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { ChevronDown, ChevronRight, ArrowRight, AlertCircle, CheckCircle, Clock } from 'lucide-react';
 import { JOURNEYS, type Journey, type HandoffStatus } from '../lib/data';
-import { SectionHeader, Card, StatusDot, StatusBadge, MetricTile, ProgressBar } from '../components/ui/MetLifeUI';
+import { SectionHeader, Card, StatusDot, StatusBadge, MetricTile, ProgressBar } from '../components/ui/SharedUI';
 
 const HANDOFF_COLORS: Record<HandoffStatus, { color: string; label: string; bg: string }> = {
   'automated': { color: '#5DA831', label: 'Automated', bg: '#F0F9E8' },
