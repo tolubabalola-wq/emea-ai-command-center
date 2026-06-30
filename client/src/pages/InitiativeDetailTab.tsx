@@ -1,12 +1,12 @@
-// MetLife EMEA AI Command Center — Initiative Detail Tab
-// Design: Light premium canvas, MetLife blue primary, four panels per tool, plain business English
+// EMEA AI Command Center — Initiative Detail Tab
+// Design: Light premium canvas, blue primary, four panels per tool, plain business English
 import React, { useState } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   LineChart, Line, ReferenceLine, Cell,
 } from 'recharts';
 import { AI_TOOLS, FUNCTIONS, getStatusColor, getRiskStatus } from '../lib/data';
-import { SectionHeader, Card, StatusDot, StatusBadge, ProgressBar, MetricTile } from '../components/ui/MetLifeUI';
+import { SectionHeader, Card, StatusDot, StatusBadge, ProgressBar, MetricTile } from '../components/ui/SharedUI';
 
 const WATERFALL_STEPS = [
   { step: 'Safety Check', ms: 45, color: '#0F97A6' },
