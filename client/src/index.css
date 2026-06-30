@@ -41,7 +41,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* MetLife Brand Colors */
+  /* Brand Colors */
   --ml-blue: #0090DA;
   --ml-green: #5DA831;
   --ml-green-light: #8CC63F;
@@ -142,7 +142,7 @@
     }
   }
 
-  /* MetLife card style */
+  /* Card style */
   .ml-card {
     background: white;
     border: 1px solid #E1E8F1;
