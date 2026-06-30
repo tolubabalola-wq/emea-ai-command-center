@@ -1,5 +1,5 @@
-// MetLife EMEA AI Command Center — Portfolio Tab
-// Design: Light premium canvas, MetLife blue primary, charts-forward, plain business English
+// EMEA AI Command Center — Portfolio Tab
+// Design: Light premium canvas, blue primary, charts-forward, plain business English
 import React, { useState, useMemo } from 'react';
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -7,7 +7,7 @@ import {
 } from 'recharts';
 import { ChevronDown, ChevronRight, Filter } from 'lucide-react';
 import { AI_TOOLS, IDEAS_BACKLOG, FUNCTIONS, MARKETS, getStatusColor, getRiskStatus } from '../lib/data';
-import { StatusDot, StatusBadge, SectionHeader, Card, InfoTooltip, ProgressBar } from '../components/ui/MetLifeUI';
+import { StatusDot, StatusBadge, SectionHeader, Card, InfoTooltip, ProgressBar } from '../components/ui/SharedUI';
 
 const STAGE_COLORS: Record<string, string> = {
   Production: '#5DA831',
@@ -367,11 +367,11 @@ export default function PortfolioTab() {
           style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'none', border: '1px solid #E1E8F1', borderRadius: 8, padding: '10px 16px', cursor: 'pointer', color: '#54657E', fontSize: 13, fontWeight: 500 }}
         >
           {modelsOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
-          Models and Oversight — which MetIQ model powers each tool and the level of human review
+          Models and Oversight — which AI model powers each tool and the level of human review
         </button>
         {modelsOpen && (
           <Card style={{ marginTop: 10 }}>
-            <SectionHeader title="Models and Oversight" subtitle="Every tool runs on MetIQ. This table shows which model variant and the human oversight level in production." />
+            <SectionHeader title="Models and Oversight" subtitle="Every tool runs on AI. This table shows which model variant and the human oversight level in production." />
             <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12.5, minWidth: 560 }}>
               <thead>
