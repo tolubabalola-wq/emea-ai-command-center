@@ -1,5 +1,5 @@
-// MetLife EMEA AI Command Center — Overview Tab
-// Design: Light premium canvas, MetLife blue primary, charts-forward, plain business English
+// EMEA AI Command Center — Overview Tab
+// Design: Light premium canvas, blue primary, charts-forward, plain business English
 import React, { useState } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -17,7 +17,7 @@ import {
 import {
   MetricTile, SectionHeader, Card, StatusDot, StatusBadge, InfoTooltip,
   FunnelChart, ScoreGauge, ProgressBar,
-} from '../components/ui/MetLifeUI';
+} from '../components/ui/SharedUI';
 
 const COLORS = {
   blue: '#0090DA',
@@ -236,7 +236,7 @@ export default function OverviewTab() {
         <Card>
           <SectionHeader
             title="Value by Strategic Priority"
-            subtitle="How realized AI value flows into MetLife's two New Frontier outcomes: growing revenue and reducing expenses."
+            subtitle="How realized AI value flows into the company's two New Frontier outcomes: growing revenue and reducing expenses."
           />
           {/* Two-bucket outcome view */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -380,7 +380,7 @@ export default function OverviewTab() {
         <Card>
           <SectionHeader
             title="Is It Safe? Responsible AI Scores"
-            subtitle="MetLife's seven AI governance principles, scored across all production tools. Target is 85 or above for each."
+            subtitle="The company's seven AI governance principles, scored across all production tools. Target is 85 or above for each."
           />
           <div>
             {raiScores.map(r => (
@@ -433,7 +433,7 @@ export default function OverviewTab() {
       <Card>
         <SectionHeader
           title="How AI Supports Our Strategy"
-          subtitle="Realized value mapped to MetLife's New Frontier priorities. Click any bar to see which tools contribute."
+          subtitle="Realized value mapped to The company's New Frontier priorities. Click any bar to see which tools contribute."
         />
         <div>
           {NEW_FRONTIER_PRIORITIES.map(priority => {
